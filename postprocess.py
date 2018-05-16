@@ -1,6 +1,6 @@
 data = []
 para = ''
-with open('tobechecked.md') as file:
+with open('tobechecked.md', encoding='utf-8') as file:
     for line in file:
         if line.startswith('>'):
             para += line
@@ -13,5 +13,5 @@ with open('tobechecked.md') as file:
                 para = ''
 
 print(data)
-with open('target.md', 'w') as file:
+with open('target.md', 'w', encoding='utf-8') as file:
     file.writelines(data)

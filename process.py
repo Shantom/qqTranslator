@@ -7,9 +7,9 @@ import time
 
 secretKey = ''
 secretID = ''
-with open('keys.txt') as keys:
-    secretKey = keys.readline().strip()
+with open('keys.txt', encoding='utf-8') as keys:
     secretID = keys.readline().strip()
+    secretKey = keys.readline().strip()
 
 
 class Translator:
@@ -49,7 +49,7 @@ class Translator:
         self.payload['Signature'] = signature.decode()
 
     def start(self, text):
-        self.__init__()
+        self.__init__(self.secretKey,self.payload["SecretId"])
         self.payload['SourceText'] = text
         self.genSig()
         res = requests.get('https://tmt.tencentcloudapi.com/', self.payload)
@@ -61,8 +61,8 @@ time_start = time.time()
 
 T = Translator(secretKey, secretID)
 
-with open('preprocessed.txt') as inFile:
-    with open('tobechecked.md', 'w') as outFile:
+with open('preprocessed.txt', encoding='utf-8') as inFile:
+    with open('tobechecked.md', 'w', encoding='utf-8') as outFile:
         for line in inFile:
             paraEnd = ''
             if line.strip().endswith('^p'):
