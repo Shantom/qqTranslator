@@ -4,7 +4,7 @@
 
 # 使用步骤
 
-1. 使用了腾讯翻译官的API，用户请进入https://cloud.tencent.com/product/tmt，自行申请API，目前是免费的，申请得到secretID和secretKey请保存在同目录的keys.txt文件（没有请自行创建）。
+1. 使用了腾讯翻译官的API，用户请进入[腾讯云]( https://cloud.tencent.com/product/tmt "腾讯云") ，自行申请API，目前是免费的，申请得到secretID和secretKey请保存在同目录的keys.txt文件（没有请自行创建）。
 2. 将语句通顺的英文放入同目录的source.txt中，使用Python3 运行preprocess.py和process.py得到tobechecked.md文件。
 
 ~~~shell
